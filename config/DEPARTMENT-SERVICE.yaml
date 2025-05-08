@@ -3,15 +3,4 @@ eureka:
       serviceUrl:
          defaultZone: ${EUREKA_SERVER_ADDRESS:http://localhost:8761/eureka}
 currentEnvValue: "default environment of Department"
-management:
-  health:
-    circuitbreakers:
-      enabled: true
-  endpoint:
-    health:
-      show-details: always
-  endpoints:
-    web:
-      exposure:
-        include: *
 
