@@ -11,6 +11,14 @@ management:
   endpoint:
     health:
       show-details: always
+    metrics:
+      enable:
+        resilience4j.circuitbreaker: true
+        resilience4j.retry: true
+        resilience4j.timelimiter: true
+  metrics:
+    enable:
+      all: true
   health.circuitbreakers.enabled: true
   health.ratelimiters.enabled: true
 resilience4j:
