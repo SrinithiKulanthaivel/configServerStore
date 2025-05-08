@@ -3,4 +3,32 @@ eureka:
       serviceUrl:
          defaultZone: ${EUREKA_SERVER_ADDRESS:http://localhost:8761/eureka}
 currentEnvValue: "default environment of Department"
-
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+  health.circuitbreakers.enabled: true
+  health.ratelimiters.enabled: true
+resilience4j:
+  circuitbreaker:
+    instances:
+      employeeString:
+        slidingWindowSize: 5
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+        permittedNumberOfCallsInHalfOpenState: 2
+        registerHealthIndicator: true
+        minimumNumberOfCalls: 2
+  retry:
+    instances:
+      employeeString:
+        maxAttempts: 3
+        waitDuration: 1s
+  timelimiter:
+    instances:
+      employeeString:
+        timeoutDuration: 4s
