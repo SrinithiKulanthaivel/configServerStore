@@ -7,7 +7,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info  # Ensure this includes health and info endpoints
+        include: health,info,circuitbreakers, retries, rate-limiters, bulkheads, time-limiters
   endpoint:
     health:
       show-details: always
